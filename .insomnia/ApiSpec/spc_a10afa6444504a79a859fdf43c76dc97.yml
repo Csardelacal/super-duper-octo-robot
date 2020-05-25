@@ -1,0 +1,67 @@
+_id: spc_a10afa6444504a79a859fdf43c76dc97
+contentType: yaml
+contents: >+
+  openapi: 3.0.0
+
+
+  info: 
+    description: "This API allows third party applications to retrieve information regarding whether visa requirements for travellers of certain countries are met. These endpoints allow n:m joins of countries and travellers, feel free to add as many as needed"
+    version: 0.0.1 (2020 - May)
+    title: Visa-gate Discovery
+    termsOfService: https://visa-gate.com/de/agb
+    contact:
+      email:
+        - markus.glatz@visa-gate.com
+        - raphael.mahir@visa-gate.com
+        - cesar.bretschneider@visa-gate.com
+      license:
+        name: proprietary
+
+
+  tags:
+    - name: country
+      description: A country the passenger may wish to travel to.
+      
+    - name: passenger
+      description: A single individual travelling to a certain country
+      
+    - name: route
+      description: A route is a combination of country + purpose. For example, a business trip to India or a leisure trip to the US
+    
+    - name: document
+      description: A document is any passport, visa or similar document that provides access to a country either on it's own or in combination with other documents
+      
+    - name: candidate
+      description: these are used by the API as a response. A candidate is a set of documents that the passenger can use to enter a country and that they all either already posess or can acquire.
+
+  servers:
+    - 
+
+  paths:
+    /search/find/document/{search}.json:
+      get:
+        tags:
+          - document
+        summary:
+        description: 
+        operationId:
+        requestBody:
+          #$ref: "#/components/requestBodies/search/document"
+        responses:
+          "200":
+            description: 
+          "404":
+      parameters:
+        - name: search
+          in : path
+          description: A user provided search string
+          required: true
+          schema:
+            type: string
+          
+
+created: 1590417922176
+fileName: Visa-Discovery-dup
+modified: 1590417922211
+parentId: wrk_88931cbd739e4c3c91241846897cdcf8
+type: ApiSpec
